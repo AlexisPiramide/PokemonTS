@@ -15,11 +15,18 @@ export default class pokemonUsecases {
     }
 
     async getPokemonByType(tipo: String): Promise<Pokemon[]> {
-        return this.pokemonRepository.getPokemonByType(tipo);
+        try {
+            return this.pokemonRepository.getPokemonByType(tipo);
+        } catch (error) {
+            throw error;
+        }
     }
 
     async getPokemonByName(nombre: String): Promise<Pokemon> {
-        return this.pokemonRepository.getPokemonByName(nombre);
+        try {
+            return this.pokemonRepository.getPokemonByName(nombre);
+        } catch (error) {
+            throw error;
+        }
     }
-
 }

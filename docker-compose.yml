@@ -1,4 +1,6 @@
+version: '3.8'
 
+services:
   postgres:
     container_name: postgres
     image: postgres:latest
@@ -9,6 +11,8 @@
     ports:
       - "5432:5432"
     restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin
@@ -19,3 +23,9 @@
     ports:
       - "${PORT}:80"
     restart: always
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  postgres_data:
+  pgadmin_data:
