@@ -25,9 +25,11 @@ export default class entrenadorUsecases {
     }
 
 
-    async capturarPokemon(entrenador: Entrenador,pokemon: Pokemon): Promise<Entrenador> {
+    async capturarPokemon(entrenador: String,pokemon: Pokemon): Promise<Entrenador> {
         try {
-            return this.entrenadorRepository.capturarPokemon(entrenador,pokemon);
+            const entrenadorDB= await this.entrenadorRepository.getEntrenadorByName(entrenador);
+            await this.entrenadorRepository.capturarPokemon(entrenadorDB,pokemon,pokemon.nivel || 5);
+            return this.entrenadorRepository.getEntrenadorByName(entrenador);
         } catch (error) {
             throw error;
         }

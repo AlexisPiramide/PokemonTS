@@ -5,5 +5,5 @@ export default interface entrenadorRepository{
 
     getAllEntrenadores() : Promise<Entrenador[]>
     getEntrenadorByName(nombre: String): Promise<Entrenador>
-    capturarPokemon(entrenador : Entrenador,pokemon: Pokemon): Promise<Entrenador>
+    capturarPokemon(entrenador : Entrenador,pokemon: Pokemon,nivel: Number): Promise<Boolean>
 }

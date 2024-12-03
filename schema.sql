@@ -15,18 +15,18 @@ CREATE TABLE entrenador (
 );
 
 CREATE TABLE entrenador_pokemon (
+    id SERIAL PRIMARY KEY,
     entrenador_id INT,
     pokemon_nombre VARCHAR(100),
     nivel INT NOT NULL,
-    PRIMARY KEY (entrenador_id, pokemon_nombre),
     FOREIGN KEY (entrenador_id) REFERENCES entrenador(id),
     FOREIGN KEY (pokemon_nombre) REFERENCES pokemon(nombre)
 );
 
 INSERT INTO tipo (nombre) VALUES
-('Planta'), ('Fuego'), ('Agua'), ('Eléctrico'), ('Bicho'), ('Volador'),
-('Normal'), ('Psíquico'), ('Roca'), ('Hielo'), ('Fantasma'), ('Dragón'),
-('Lucha'), ('Tierra'), ('Acero'), ('Hada');
+('Normal'), ('Fuego'), ('Agua'), ('Planta'), ('Eléctrico'), ('Hielo'),
+('Lucha'), ('Veneno'), ('Tierra'), ('Volador'), ('Psíquico'), ('Bicho'),
+('Roca'), ('Fantasma'), ('Dragón'), ('Siniestro'), ('Acero'), ('Hada');
 
 INSERT INTO pokemon (nombre, tipo_primario, tipo_secundario) VALUES
 ('Bulbasaur', 'Planta', 'Veneno'),
